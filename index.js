@@ -1,35 +1,48 @@
-function add (a, b){
-  return a + b; 
+
+
+
+const addition = document.querySelector(".add");
+const substract = document.querySelector(".sub");
+const devide = document.querySelector(".devide");
+const equal = document.querySelector(".equal");
+const clear = document.querySelector(".clear");
+
+   function add (a, b){
+  return a + b;
+   }
+
+
+
+addition.addEventListener( "click",  () =>{
+
+console.log(add(7,8));
+
 }
 
-console.log(add(3,4));
-
-const display = document.querySelector(".container");
-
-const buttons = document.querySelectorAll("button");
-
-const buttonHtml = buttons.innerHTML;
-
-const displayData= []
-
-const num1 = [];
-const opp = [];
-const num2 = [];
-const currentValue = [];
-
-function add (a, b){
-  return a + b
-}
-
-
-  buttons.forEach(button => {
-  button.addEventListener("click", () => {
-
-    if 
+);
 
  
-  });
-});
+
+
+
+
+/*function substract (a, b){
+
+  return a - b;
+
+}
+
+function devide (a, b){
+  return a / b;
+}
+
+function multiply (a, b){
+  return a * b;
+} */
+
+
+
+
 
 
 
