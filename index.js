@@ -1,127 +1,74 @@
-
-<<<<<<< HEAD
-
-
-const addition = document.querySelector(".add");
-const substract = document.querySelector(".sub");
-const devide = document.querySelector(".devide");
-const equal = document.querySelector(".equal");
-const clear = document.querySelector(".clear");
-
-   function add (a, b){
-  return a + b;
-   }
-
-
-
-addition.addEventListener( "click",  () =>{
-
-console.log(add(7,8));
-
-}
-
-);
-
- 
-
-
-
-
-/*function substract (a, b){
-
-  return a - b;
-
-}
-
-function devide (a, b){
-  return a / b;
-}
-
-function multiply (a, b){
-  return a * b;
-} */
-
-
-
-
-=======
 const display = document.querySelector(".container");
 const buttons = document.querySelectorAll(".number");
 const clear = document.querySelector(".clear")
-const operator = document.querySelector(".operator");
+const operators = document.querySelectorAll(".operator");
 const equal = document.querySelector(".equal");
 
-let num1; 
-let num2;
-let operatorClicked = false;
 
-function add (a, b){
+let num1;
+let num2;
+let operatorClicked;
+
+
+function add(a, b) {
   return a + b;
+};
+
+function subtract(a, b) {
+  return a - b;
+};
+
+function divide(a, b) {
+  return a / b;
 }
 
+function multiply(a, b) {
+  return a * b;
+}
 
-
-console.log(operatorClicked)
-
+console.log(operatorClicked);
 
 
 // Click number to show on display
-buttons.forEach(function(button){
-  button.addEventListener('click', () =>{
+buttons.forEach(function (button) {
+  button.addEventListener('click', () => {
     display.textContent += button.textContent;
   })
 });
->>>>>>> 3eea2343c1076513e8a82d06abc8f259cca902b3
 
-operator.addEventListener("click", () =>{
-  num1 = display.textContent;
-  console.log(num1);
-  display.textContent = "";
+operators.forEach(button => {
+  button.addEventListener("click", (event) => {
+    num1 = display.textContent;
+    console.log(num1);
+    display.textContent = "";
+
+    if (event.target.textContent) {
+      operatorClicked = event.target.textContent
+    }
+    console.log(operatorClicked)
+  })
 });
 
-equal.addEventListener("click", () =>{
+equal.addEventListener("click", () => {
 
   num2 = display.textContent;
-  
 
-  display.textContent = add(parseInt(num1), parseInt(num2));
-})
+  if (operatorClicked == "+") {
+    display.textContent = add(parseInt(num1), parseInt(num2));
+  } else if (operatorClicked == "-") {
+    display.textContent = subtract(parseInt(num1), parseInt(num2));
+  } else if (operatorClicked == "/") {
 
+    display.textContent = divide(parseInt(num1), parseInt(num2));
+  } else if (operatorClicked == "x") {
+    display.textContent = multiply(parseInt(num1), parseInt(num2))
 
+  }
+  operatorClicked = ""
+});
 
 //Clear display
-clear.addEventListener("click", () =>{
+clear.addEventListener("click", () => {
   display.textContent = " ";
-}
-);
-
-//Store 2 numbers
-
-
-
-
-
- 
-
-
-
-
-
-
-
-function add (a, b){
-  return a + b;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+  operatorClicked = "";
+});
