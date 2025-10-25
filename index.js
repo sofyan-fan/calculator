@@ -36,6 +36,7 @@ buttons.forEach(function (button) {
   })
 });
 
+// Select and store operator
 operators.forEach(button => {
   button.addEventListener("click", (event) => {
     num1 = display.textContent;
@@ -64,7 +65,8 @@ equal.addEventListener("click", () => {
     display.textContent = multiply(parseInt(num1), parseInt(num2))
 
   }
-  operatorClicked = ""
+  num1 = display.textContent;
+  operatorClicked = "";
 });
 
 //Clear display
@@ -72,3 +74,5 @@ clear.addEventListener("click", () => {
   display.textContent = " ";
   operatorClicked = "";
 });
+
+console.log(typeof(add(4,6)))
